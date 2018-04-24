@@ -378,25 +378,55 @@ console.log(name3) // Ela
 // ### SPREAD ###
 
 // ---== START ==---
-const obj = {
-    name: 'Bartosz',
-    lastname: 'Wojtalewicz'
+// const obj = {
+//     name: 'Bartosz',
+//     lastname: 'Wojtalewicz'
+// }
+//
+// const obj2 = Object.assign({}, obj) // shallow copy
+//
+// const obj3 = JSON.parse(JSON.stringify(obj)) // deep copy
+//
+// const obj4 = {
+//     ...obj
+// } // shallow copy
+//
+// console.log(obj4)
+//
+// const obj5 = {
+//     ...obj,
+//     lastname: 'Bartewicz'
+// } // shallow copy
+//
+// console.log(obj5)
+// ---=== END ===---
+
+// ### REST ###
+
+// ---== START ==---
+const logAll = function () {
+    console.log(arguments)
 }
 
-const obj2 = Object.assign({}, obj) // shallow copy
+logAll(1, 3, 'ala', 5, 'kota')
 
-const obj3 = JSON.parse(JSON.stringify(obj)) // deep copy
+const logAllArrow = (...args) => console.log(args)
 
-const obj4 = {
-    ...obj
-} // shallow copy
+logAllArrow(1, 3, 'ala', 5, 'kota')
 
-console.log(obj4)
+const logAllArrowV2 = (...args) => console.log(...args)
 
-const obj5 = {
-    ...obj,
-    lastname: 'Bartewicz'
-} // shallow copy
+logAllArrowV2(1, 3, 'ala', 5, 'kota')
 
-console.log(obj5)
+const add = (a, b, ...rest) => {
+    console.log('Rest parameters: ', rest)
+    return a + b
+}
+
+console.log(add(2,2))
+console.log(add(2,2,2,2,'sdf'))
+
+const sumAll = (...args) => args.reduce((sum, curr) => sum + curr, 0)
+
+window.sumAll = sumAll
 // ---=== END ===---
