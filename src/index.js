@@ -329,3 +329,74 @@ console.log(name2) // Ola
 console.log(name3) // Ela
 */
 // ---=== END ===---
+
+// ### DESTRUCTURING ###
+
+// ---== START ==---
+// // object with random keys
+// const data = {
+//     asdf: {name: 'Ala', lastname: 'Kowal'},
+//     asdfa: {name: 'Ela', lastname: 'Kowalska'},
+//     asdfs: {name: 'Ola', lastname: 'Kowalewska'},
+//     asdfd: {name: 'Ada', lastname: 'Kowalczyk'},
+//     asdff: {name: 'Anna', lastname: 'Kowalik'},
+//     asdfg: {name: 'Aga', lastname: 'Kowal'}
+// }
+//
+// // we want to console log all names
+// console.log(
+//     Object.entries(data)
+//     // .map(person => person[1].name)
+//     // .map(([key, value]) => value.name)
+//     // .map(([, value]) => value.name)
+//         .map(([, {name}]) => name)
+// )
+//
+// const obj = {
+//     name: 'Mateusz',
+//     lastname: 'Choma'
+// }
+//
+// const obj2 = Object.assign({}, obj) // shallow copy
+//
+// const obj3 = JSON.parse(JSON.stringify(obj)) // deep copy
+//
+// const obj4 = {
+//     ...obj
+// } // shallow copy
+//
+// console.log(obj4)
+//
+// const obj5 = {
+//     ...obj,
+//     lastname: 'Chomeusz'
+// } // shallow copy
+//
+// console.log(obj5)
+// ---=== END ===---
+
+// ### SPREAD ###
+
+// ---== START ==---
+const obj = {
+    name: 'Bartosz',
+    lastname: 'Wojtalewicz'
+}
+
+const obj2 = Object.assign({}, obj) // shallow copy
+
+const obj3 = JSON.parse(JSON.stringify(obj)) // deep copy
+
+const obj4 = {
+    ...obj
+} // shallow copy
+
+console.log(obj4)
+
+const obj5 = {
+    ...obj,
+    lastname: 'Bartewicz'
+} // shallow copy
+
+console.log(obj5)
+// ---=== END ===---
