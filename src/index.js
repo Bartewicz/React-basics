@@ -4,7 +4,7 @@ console.log('Hello ES6!')
 // Exercises are marked by start and end comments
 // ---=== END ===---
 
-// LET vs VAR
+// ### LET vs VAR ###
 
 // ---== START ==---
 // for (var i = 0; i < 3; i++) {
@@ -34,7 +34,7 @@ console.log('Hello ES6!')
 // console.log('j variable after loop:', j)
 // ---=== END ===---
 
-// REDECLARATION
+// ### REDECLARATION ###
 
 // ---== START ==---
 // var name1 = 'Mark'
@@ -49,7 +49,7 @@ console.log('Hello ES6!')
 // 'Module build failed: Duplicate declaration "name2"'
 // ---=== END ===---
 
-// HOISTING
+// ### HOISTING ###
 
 // ---== START ==---
 // function v() {
@@ -70,7 +70,7 @@ console.log('Hello ES6!')
 // l()
 // ---=== END ===---
 
-// CONST
+// ### CONST ###
 
 // ---== START ==---
 // let number = 1
@@ -99,7 +99,7 @@ console.log('Hello ES6!')
 // console.log('obj.name is now:', obj.name)
 // ---=== END ===---
 
-// TEMPLATE STRINGS
+// ### TEMPLATE STRINGS ###
 
 // ---== START ==---
 // const name = 'Bartosz'
@@ -117,11 +117,57 @@ console.log('Hello ES6!')
 // 4`)
 // ---=== END ===---
 
-// STATEMENTS
+// ### STATEMENTS ###
 
 // ---== START ==---
-const redIsFavourite = true
-console.log(
-    `My favourite color is ${redIsFavourite ? '' : 'not'} red`
-)
+// const redIsFavourite = true
+// console.log(
+//     `My favourite color is ${redIsFavourite ? '' : 'not'}red`
+// )
 // ---=== END ===---
+
+// ### ARROW FUNCTION ###
+
+// ---== START ==---
+// const addOne = (a) => {
+//     return a + 1
+// }
+// console.log('addOne(2)', addOne(2)) // 3
+
+// const addTwo = a => {
+//     return a + 2
+// }
+// console.log('addTwo(2)', addTwo(2)) // 4
+
+// const addThree = a => a + 3
+// console.log('addThree(2)', addThree(2)) // 5
+
+// const addTwoDiff = (a, b) => a + b
+// console.log('AddTwoDiff(2, 5)', addTwoDiff(2, 5)) // 7
+// console.log('AddTwoDiff(1, 7)', addTwoDiff(1, 7)) // 8
+
+// Immediately Invoking Function Expression (IIFE)
+// let sum = ((a, b) => a + b)(7, 9)
+
+// console.log('let sum = ((a, b) => a + b)(7, 9)', sum)
+
+// BUT
+
+// const addOneWithBug = a => { a + 1 }
+// console.log('addOneWithBug(2)', addOneWithBug(2)) // undefined
+// Expected an assignment or function call and instead saw an expression  no-unused-expressions
+
+// console.log('(a => a + 1)(5)', (a => a + 1)(5)) // 6
+
+// const returnObj1 = () => {name: 'Bartosz'}
+// console.log(returnObj1())
+// 'Found identifier with same name as label   no-label-var'
+// It's NOT an object! It's code block with 'name' as a label
+
+// BUT
+// const returnObj2 = () => ({name: 'Bartosz'})
+// console.log(returnObj2())
+// THIS will return an object
+
+// ---=== END ===---
+
