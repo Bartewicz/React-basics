@@ -174,30 +174,70 @@ console.log('Hello ES6!')
 // ### ARROW FUNCTION & THIS ###
 
 // ---== START ==---
-function Cat(name) {
-    this.name = name
-    this.sound = 'Meow'
-    this.makeSound = function () {
-        console.log(this.sound)
-    }
-}
+// function Cat(name) {
+//     this.name = name
+//     this.sound = 'Meow'
+//     this.makeSound = function () {
+//         console.log(this.sound)
+//     }
+// }
 
-function ArrowCat(name) {
-    this.name = name
-    this.sound = 'Meow'
-    this.makeSound = () => console.log(this.sound)
-}
+// function ArrowCat(name) {
+//     this.name = name
+//     this.sound = 'Meow'
+//     this.makeSound = () => console.log(this.sound)
+// }
 
-const cat = new Cat('Timon')
-cat.makeSound() // 'Meow'
+// const cat = new Cat('Timon')
+// cat.makeSound() // 'Meow'
 
-window.makeSoundInGlobalScope = cat.makeSound
-window.makeSoundInGlobalScope() // undefined
+// window.makeSoundInGlobalScope = cat.makeSound
+// window.makeSoundInGlobalScope() // undefined
 
-const ararowCat = new ArrowCat('Pumba')
-ararowCat.makeSound() // 'Meow'
+// const ararowCat = new ArrowCat('Pumba')
+// ararowCat.makeSound() // 'Meow'
 
-window.makeSoundInGlobalScope = ararowCat.makeSound
-window.makeSoundInGlobalScope() // 'Meow'
-
+// window.makeSoundInGlobalScope = ararowCat.makeSound
+// window.makeSoundInGlobalScope() // 'Meow'
 // ---=== END ===---
+
+// ### TASK ###
+
+// ---== START ==---
+function Counter() {
+    this.count = 0
+    this.startCounter = setInterval(
+        function () {
+            this.count += 1
+            console.log('this is counter', this.count)
+        }.bind(this),
+        1000
+    )
+    setTimeout(
+        (function () {
+            clearInterval(this.startCounter)
+        }).bind(this),
+        3000
+    )
+}
+
+function ArrowCounter() {
+    this.count = 0
+    this.startCounter = setInterval(
+        (() => {
+            this.count += 1
+            console.log('this is arrowCounter', this.count)
+        }),
+        1000
+    )
+    setTimeout(
+        ( () => {
+            clearInterval(this.startCounter)
+        }),
+        3000mal
+    )
+}
+
+window.counter = new Counter()
+const arrowCounter = new ArrowCounter()
+
