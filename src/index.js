@@ -1,4 +1,4 @@
-console.log('Hello ES6!')
+// console.log('Hello ES6!')
 
 // ---== START ==---
 // Exercises are marked by start and end comments
@@ -204,40 +204,128 @@ console.log('Hello ES6!')
 // ### TASK ###
 
 // ---== START ==---
-function Counter() {
-    this.count = 0
-    this.startCounter = setInterval(
-        function () {
-            this.count += 1
-            console.log('this is counter', this.count)
-        }.bind(this),
-        1000
-    )
-    setTimeout(
-        (function () {
-            clearInterval(this.startCounter)
-        }).bind(this),
-        3000
-    )
-}
+// function Counter() {
+//     this.count = 0
+//     this.startCounter = setInterval(
+//         function () {
+//             this.count += 1
+//             console.log('this is counter', this.count)
+//         }.bind(this),
+//         1000
+//     )
+//     setTimeout(
+//         (function () {
+//             clearInterval(this.startCounter)
+//         }).bind(this),
+//         3000
+//     )
+// }
 
-function ArrowCounter() {
-    this.count = 0
-    this.startCounter = setInterval(
-        (() => {
-            this.count += 1
-            console.log('this is arrowCounter', this.count)
-        }),
-        1000
-    )
-    setTimeout(
-        ( () => {
-            clearInterval(this.startCounter)
-        }),
-        3000mal
-    )
-}
+// function ArrowCounter() {
+//     this.count = 0
+//     this.startCounter = setInterval(
+//         (() => {
+//             this.count += 1
+//             console.log('this is arrowCounter', this.count)
+//         }),
+//         1000
+//     )
+//     setTimeout(
+//         ( () => {
+//             clearInterval(this.startCounter)
+//         }),
+//         3000
+//     )
+// }
 
-window.counter = new Counter()
-const arrowCounter = new ArrowCounter()
+// window.counter = new Counter()
+// window.arrowCounter = new ArrowCounter()
+// ---=== END ===---
 
+// ### CLASSES ###
+
+// ---== START ==---
+// // <-- Animal from class -->
+// class Animal {
+// // Object constructor
+// // (executed when new Animal())
+// // the same thing as constructor function
+//     constructor(sound) {
+//         this.sound = sound
+//     }
+//
+// // class method
+// // same as prototype property methods
+// // it will belong to __proto__ of new object
+//     makeSound() {
+//         console.log(this.sound)
+//     }
+// }
+//
+// const animal = new Animal('wrrr!')
+// console.log(animal)
+// // <-- / Animal from class -->
+//
+// // classes is only new syntax for this below
+//
+// // <-- Animal from constructor -->
+// function AnimalConstructor(sound) {
+//     this.sound = sound
+// }
+//
+// AnimalConstructor.prototype.makeSound = function () {
+//     console.log(this.sound)
+// }
+//
+// const animalFromConstructor = new AnimalConstructor('wrrr!')
+// console.log(animalFromConstructor)
+// // <-- / Animal from constructor -->
+//
+// // <-- Dog from constructor -->
+// function DogConstructor(breed) {
+//     AnimalConstructor.call(this, 'woof!')
+// }
+//
+// DogConstructor.prototype = Object.create(AnimalConstructor.prototype)
+// DogConstructor.prototype.constructor = DogConstructor
+// // <-- / Dog from constructor -->
+//
+// // Below the same using classes
+// // <-- Dog from class -->
+// class Dog extends Animal {
+//     constructor(breed) {
+//         super('Wooof!')
+//         this.breed = breed
+//     }
+// }
+//
+// const dog = new Dog('wrrr!')
+// console.log(dog)
+// // <-- / Dog from class -->
+//
+// // <-- Animal from class using arrow function -->
+// class ArrowAnimal {
+//     sound = 'wrauuuu!'
+//
+//     makeSound = () => {
+//         console.log(this.sound)
+//     }
+// }
+//
+// const arrowAnimal = new ArrowAnimal('wrrr!')
+// console.log(arrowAnimal)
+// // <-- / Animal from class using arrow function -->
+// ---=== END ===---
+
+// ### EXPORT & IMPORT ###
+
+// ---== START ==---
+/*
+import myNames, { name1, name2, name3 } from './exports'
+
+console.log(myNames) // {name1: "Ala", name2: "Ola", name3: "Ela"}
+console.log(name1) // Ala
+console.log(name2) // Ola
+console.log(name3) // Ela
+*/
+// ---=== END ===---
