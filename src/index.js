@@ -162,7 +162,7 @@ console.log('Hello ES6!')
 // const returnObj1 = () => {name: 'Bartosz'}
 // console.log(returnObj1())
 // 'Found identifier with same name as label   no-label-var'
-// It's NOT an object! It's code block with 'name' as a label
+// It's NOT an object! It's block of code with 'name' as a label
 
 // BUT
 // const returnObj2 = () => ({name: 'Bartosz'})
@@ -171,3 +171,33 @@ console.log('Hello ES6!')
 
 // ---=== END ===---
 
+// ### ARROW FUNCTION & THIS ###
+
+// ---== START ==---
+function Cat(name) {
+    this.name = name
+    this.sound = 'Meow'
+    this.makeSound = function () {
+        console.log(this.sound)
+    }
+}
+
+function ArrowCat(name) {
+    this.name = name
+    this.sound = 'Meow'
+    this.makeSound = () => console.log(this.sound)
+}
+
+const cat = new Cat('Timon')
+cat.makeSound() // 'Meow'
+
+window.makeSoundInGlobalScope = cat.makeSound
+window.makeSoundInGlobalScope() // undefined
+
+const ararowCat = new ArrowCat('Pumba')
+ararowCat.makeSound() // 'Meow'
+
+window.makeSoundInGlobalScope = ararowCat.makeSound
+window.makeSoundInGlobalScope() // 'Meow'
+
+// ---=== END ===---
